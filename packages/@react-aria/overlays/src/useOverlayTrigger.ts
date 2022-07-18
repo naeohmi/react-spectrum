@@ -33,7 +33,7 @@ interface OverlayTriggerAria {
  * Handles the behavior and accessibility for an overlay trigger, e.g. a button
  * that opens a popover, menu, or other overlay that is positioned relative to the trigger.
  */
-export function useOverlayTrigger(props: OverlayTriggerProps, state: OverlayTriggerState, ref: RefObject<HTMLElement>): OverlayTriggerAria {
+export function useOverlayTrigger(props: OverlayTriggerProps, state: OverlayTriggerState, ref?: RefObject<HTMLElement>): OverlayTriggerAria {
   let {type} = props;
   let {isOpen} = state;
 
