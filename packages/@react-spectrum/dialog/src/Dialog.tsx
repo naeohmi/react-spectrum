@@ -81,37 +81,35 @@ function Dialog(props: SpectrumDialogProps, ref: DOMRef) {
   }
 
   return (
-    <FocusScope contain restoreFocus>
-      <section
-        {...styleProps}
-        {...dialogProps}
-        className={classNames(
-          styles,
-          'spectrum-Dialog',
-          {
-            [`spectrum-Dialog--${sizeVariant}`]: sizeVariant,
-            'spectrum-Dialog--dismissable': isDismissable
-          },
-          styleProps.className
-        )}
-        ref={domRef}>
-        <Grid ref={gridRef} UNSAFE_className={styles['spectrum-Dialog-grid']}>
-          <SlotProvider slots={slots}>
-            {children}
-          </SlotProvider>
-          {isDismissable &&
-            <ActionButton
-              UNSAFE_className={styles['spectrum-Dialog-closeButton']}
-              isQuiet
-              aria-label={formatMessage('dismiss')}
-              onPress={onDismiss}>
-              <CrossLarge />
-            </ActionButton>
-          }
-        </Grid>
-        {dismissButton}
-      </section>
-    </FocusScope>
+    <section
+      {...styleProps}
+      {...dialogProps}
+      className={classNames(
+        styles,
+        'spectrum-Dialog',
+        {
+          [`spectrum-Dialog--${sizeVariant}`]: sizeVariant,
+          'spectrum-Dialog--dismissable': isDismissable
+        },
+        styleProps.className
+      )}
+      ref={domRef}>
+      <Grid ref={gridRef} UNSAFE_className={styles['spectrum-Dialog-grid']}>
+        <SlotProvider slots={slots}>
+          {children}
+        </SlotProvider>
+        {isDismissable &&
+          <ActionButton
+            UNSAFE_className={styles['spectrum-Dialog-closeButton']}
+            isQuiet
+            aria-label={formatMessage('dismiss')}
+            onPress={onDismiss}>
+            <CrossLarge />
+          </ActionButton>
+        }
+      </Grid>
+      {dismissButton}
+    </section>
   );
 }
 
